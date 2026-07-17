@@ -9,50 +9,38 @@ export default function Skills() {
     {
       title: 'Languages',
       icon: '🔤',
-      skills: [
-        { name: 'Python', level: '90%' },
-        { name: 'Dart', level: '85%' },
-        { name: 'JavaScript', level: '80%' },
-        { name: 'TypeScript', level: '75%' },
-        { name: 'Java', level: '70%' },
-        { name: 'PHP', level: '65%' },
-        { name: 'C', level: '60%' }
-      ]
+      skills: ['Python', 'Dart', 'JavaScript', 'TypeScript', 'Java', 'PHP', 'C']
     },
     {
       title: 'Frameworks & Libraries',
       icon: '📦',
       skills: [
-        { name: 'Flutter', level: '85%' },
-        { name: 'FastAPI', level: '80%' },
-        { name: 'Spring Boot', level: '75%' },
-        { name: 'Next.js', level: '70%' },
-        { name: 'Angular', level: '65%' },
-        { name: 'Node.js', level: '60%' },
-        { name: 'TensorFlow / PyTorch', level: '55%' },
-        { name: 'NumPy / Pandas', level: '65%' }
+        'Flutter',
+        'FastAPI',
+        'Spring Boot',
+        'Next.js',
+        'Angular',
+        'Node.js',
+        'TensorFlow / PyTorch',
+        'NumPy / Pandas'
       ]
     },
     {
       title: 'Databases & Infrastructure',
       icon: '🗄️',
-      skills: [
-        { name: 'MySQL', level: '80%' },
-        { name: 'Firebase', level: '75%' },
-        { name: 'Docker', level: '70%' },
-        { name: 'VMware', level: '60%' }
-      ]
+      skills: ['MySQL', 'Firebase', 'Docker', 'VMware']
     },
     {
       title: 'Developer Tools',
       icon: '🛠️',
       skills: [
-        { name: 'Git & GitHub', level: '85%' },
-        { name: 'Postman', level: '80%' },
-        { name: 'Tailwind CSS', level: '80%' },
-        { name: 'Bootstrap', level: '75%' },
-        { name: 'Hugging Face', level: '60%' },
-        { name: 'Draw.io', level: '70%' }
+        'Git & GitHub',
+        'Postman',
+        'Basic Linux CLI',
+        'Tailwind CSS',
+        'Bootstrap',
+        'Hugging Face',
+        'Draw.io'
       ]
     }
   ];
@@ -73,23 +61,10 @@ export default function Skills() {
               <h3>{category.title}</h3>
             </div>
             <div className="skills-list">
-              {category.skills.map((skill, sIdx) => (
+              {category.skills.map((skillName, sIdx) => (
                 <div key={sIdx} className="skill-item">
-                  <div className="skill-info">
-                    <span className="skill-name">{skill.name}</span>
-                    <span className="skill-percent">{skill.level}</span>
-                  </div>
-                  {/* แถบระดับทักษะเพิ่มความพรีเมียมและความทันสมัยในการดีไซน์ */}
-                  <div className="skill-bar-bg">
-                    <div 
-                      className="skill-bar-fill" 
-                      style={{ width: skill.level }}
-                      role="progressbar"
-                      aria-valuenow={parseInt(skill.level)}
-                      aria-valuemin="0"
-                      aria-valuemax="100"
-                    ></div>
-                  </div>
+                  <span className="skill-bullet">✦</span>
+                  <span className="skill-name">{skillName}</span>
                 </div>
               ))}
             </div>

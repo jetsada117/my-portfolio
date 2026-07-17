@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
  * Navbar Component (แถบเมนูนำทาง)
  * รองรับการย่อหน้าจอ (Responsive) และ Smooth Scroll
  */
-export default function Navbar({ theme, toggleTheme }) {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -45,28 +45,10 @@ export default function Navbar({ theme, toggleTheme }) {
           <a href="#experience-projects" className="nav-link">ผลงาน & ประสบการณ์</a>
           <a href="#skills" className="nav-link">ทักษะ</a>
           <a href="#contact" className="nav-link">ติดต่อ</a>
-          
-          {/* ปุ่มสลับโหมด Dark/Light */}
-          <button 
-            onClick={toggleTheme} 
-            className="theme-toggle-btn" 
-            aria-label="Toggle theme"
-            title={theme === 'dark' ? 'เปลี่ยนเป็นโหมดสว่าง' : 'เปลี่ยนเป็นโหมดมืด'}
-          >
-            {theme === 'dark' ? '☀️' : '🌙'}
-          </button>
         </div>
 
-        {/* เมนูขวาสำหรับ Mobile (ปุ่ม Toggle + Theme Toggle) */}
+        {/* เมนูขวาสำหรับ Mobile */}
         <div className="nav-menu-mobile-actions">
-          <button 
-            onClick={toggleTheme} 
-            className="theme-toggle-btn-mobile" 
-            aria-label="Toggle theme"
-          >
-            {theme === 'dark' ? '☀️' : '🌙'}
-          </button>
-          
           {/* ปุ่ม Hamburger */}
           <button 
             className={`hamburger-btn ${isOpen ? 'open' : ''}`} 
