@@ -1,5 +1,5 @@
 import React from 'react';
-import heroImg from '../assets/developer_hero.jpg';
+import heroImg from '../../../assets/developer_hero.jpg';
 
 /**
  * Hero Component (ส่วนต้อนรับ / แนะนำตัวหลัก)
