@@ -35,7 +35,7 @@ export default function Contact() {
     });
     setTimeout(() => {
       setIsSubmitted(false);
-    }, 5000);
+    }, 6000);
   };
 
   return (
