@@ -1,7 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from '../../pages/Home/HomePage';
-import ProjectDetailPage from '../../pages/ProjectDetail/ProjectDetailPage';
 
 /**
  * AppRoutes Component
@@ -11,7 +10,6 @@ export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/project/:id" element={<ProjectDetailPage />} />
     </Routes>
   );
 }

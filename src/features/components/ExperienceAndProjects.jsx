@@ -77,7 +77,7 @@ export default function ExperienceAndProjects() {
             {/* ปุ่มเพื่อกดดูรายละเอียดแยกหน้ารายโปรเจกต์ */}
             <div className="project-card-footer" style={{ marginTop: '1.5rem', textAlign: 'right' }}>
               <Link 
-                to={`/project/${project.id}`} 
+                to={project.path} 
                 className="project-detail-link"
                 style={{
                   color: '#60a5fa',
