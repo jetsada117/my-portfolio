@@ -1,12 +1,14 @@
 import React from 'react';
-import './Hero.css';
 
 export default function Hero() {
     return (
         <section id="hero" className="hero-section">
-            <div className="">
-                <h1>AI Face Prediction</h1>
-                <p>Discover the power of artificial intelligence in face recognition and analysis.</p>
+            <div className="hero-grid">
+                <div className="hero-content">
+                    <h1 className="hero-title animate-slide-up">
+                        สวัสดีครับ, ผม <span className="highlight-text">เจษฎา พรหมบุตร</span>
+                    </h1>
+                </div>
             </div>
         </section>
     )

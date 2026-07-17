@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+ import { Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from '../../pages/Home/HomePage';
 import AIFacePredictionPage from '../../pages/ai-face-prediction/AIFacePredictionPage';
 
@@ -12,6 +12,7 @@ export default function AppRoutes() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/project/ai-face-prediction" element={<AIFacePredictionPage />} />
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 } 

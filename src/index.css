@@ -1,7 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* 
   index.css
   ระบบออกแบบดีไซน์หลัก (Global Styles & Design System Tokens)
-  ใช้รูปแบบสี HSL ที่มีความสว่างและคอนทราสต์เหมาะสม ทั้งในโหมดสว่างและโหมดมืด
 */
 
 :root {
