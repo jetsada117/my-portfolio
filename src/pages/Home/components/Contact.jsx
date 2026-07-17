@@ -1,4 +1,5 @@
 import React from 'react';
+import './Contact.css';
 
 /**
  * Contact Component (ช่องทางการติดต่อ)

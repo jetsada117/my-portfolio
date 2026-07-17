@@ -1,4 +1,5 @@
 import React from 'react';
+import './About.css';
 
 /**
  * About Component (เกี่ยวกับฉัน และประวัติการศึกษา/ประสบการณ์ผู้ช่วยสอน)

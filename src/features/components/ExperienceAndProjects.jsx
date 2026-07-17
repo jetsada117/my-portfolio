@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { projects } from '../data/projects';
+import './ExperienceAndProjects.css';
 
 /**
  * ExperienceAndProjects Component (ส่วนแสดงโปรเจกต์วิชาการและผลงาน)

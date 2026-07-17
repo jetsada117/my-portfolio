@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import HomePage from '../../pages/Home/HomePage';
+import AIFacePredictionPage from '../../pages/ai-face-prediction/AIFacePredictionPage';
 
 /**
  * AppRoutes Component
@@ -10,6 +11,9 @@ export default function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
+      <Route path="/project/ai-face-prediction" element={<AIFacePredictionPage />} />
     </Routes>
   );
-}
+} 
+    
+
