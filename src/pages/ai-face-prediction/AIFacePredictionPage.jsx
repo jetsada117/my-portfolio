@@ -13,7 +13,11 @@ export default function AIFacePredictionPage() {
         <div className="app-wrapper">
             <Navbar/>
             <main className="main-content">
-                <Hero/>
+                <div className="min-h-[60vh] flex flex-col items-center justify-center text-center p-6">
+                    <div className="content-wrapper text-lg font-bold text-slate-600">
+                        ขออภัยครับ หน้า AIFacePredictionPage ยังอยู่ระหว่างการพัฒนาและปรับปรุงดีไซน์ครับ
+                    </div>
+                </div>
             </main>
 
             <Footer/>

@@ -49,8 +49,8 @@ export default function Skills() {
             
             <ul className="flex flex-col gap-3">
               {category.skills.map((skill, idx) => (
-                <li key={idx} className="flex items-center gap-2.5">
-                  <span className="text-blue-500 font-bold text-[11px] bg-blue-50/70 w-5 h-5 rounded-md flex items-center justify-center border border-blue-100/50">✓</span>
+                <li key={idx} className="flex items-center gap-3">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-600 flex-shrink-0"></span>
                   <span className="font-bold text-slate-700 text-[14px]">{skill}</span>
                 </li>
               ))}
