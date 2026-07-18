@@ -1,38 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  ScanFace, 
   Sparkles, 
   Cpu, 
-  Database, 
-  Search, 
   ArrowLeft, 
   Layers, 
-  CheckCircle2,
-  Zap
+  Zap,
+  Smartphone,
+  Layers3,
+  Repeat
 } from 'lucide-react';
+
+import img54487 from '../../../assets/ai-face-prediction-image/54487.jpg';
+import img54488 from '../../../assets/ai-face-prediction-image/54488.jpg';
 
 /**
  * Hero Component - หน้าโปรเจกต์ AI Face Prediction
- * ออกแบบด้วยดีไซน์ทันสมัย สไตล์ AI Tech & Glassmorphism
+ * แสดงรูปภาพแบบ Stacked Layered Cards (ซ้อนมิติ)
  */
 export default function Hero() {
+  // สถานะการสลับเลเยอร์รูปภาพหน้า-หลัง
+  const [isSwapped, setIsSwapped] = useState(false);
+
   const techStack = [
     { name: 'Flutter', color: 'bg-blue-50 border-blue-200 text-blue-700' },
     { name: 'Python', color: 'bg-amber-50 border-amber-200 text-amber-800' },
     { name: 'FastAPI', color: 'bg-emerald-50 border-emerald-200 text-emerald-700' },
-    { name: 'AI Model (Semantic Search)', color: 'bg-purple-50 border-purple-200 text-purple-700' },
+    { name: 'TensorFlow (Training Model)', color: 'bg-yellow-50 border-orange-200 text-yellow-700' },
+    { name: 'AI Model (Prediction Image)', color: 'bg-purple-50 border-purple-200 text-purple-700' },
     { name: 'MySQL', color: 'bg-sky-50 border-sky-200 text-sky-700' },
   ];
 
   return (
-    <section id="hero" className="relative overflow-hidden py-12 lg:py-20 px-6 max-w-[1200px] mx-auto w-full">
+    <section id="hero" className="relative overflow-hidden pt-3 pb-12 lg:pt-5 lg:pb-16 px-6 max-w-[1200px] mx-auto w-full">
       {/* เอฟเฟกต์แสงพื้นหลัง (Glow Lights) */}
       <div className="absolute top-1/4 left-10 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse"></div>
       <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
       {/* ปุ่มย้อนกลับสู่หน้าหลัก (Clean Style) */}
-      <div className="mb-8">
+      <div className="mb-6">
         <Link 
           to="/" 
           className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-xs md:text-sm font-semibold text-slate-700 bg-white/90 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-blue-300 hover:bg-blue-50/60 hover:text-blue-600 backdrop-blur-md transition-all duration-200 group"
@@ -109,69 +115,65 @@ export default function Hero() {
 
         </div>
 
-        {/* คอลัมน์ขวา: การ์ดจำลองหน้าตา UI และการสแกนของ AI */}
-        <div className="lg:col-span-5 relative flex justify-center">
-          <div className="w-full max-w-[420px] bg-gradient-to-b from-slate-900 to-slate-950 text-white rounded-3xl p-6 shadow-2xl border border-slate-800 relative overflow-hidden group">
-            
-            {/* เส้นสแกนจำลองแบบ AI (Scanning Animation Effect) */}
-            <div className="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent top-0 animate-[ping_3s_infinite] opacity-75"></div>
-            
-            {/* Header การ์ด */}
-            <div className="flex items-center justify-between border-b border-slate-800 pb-4 mb-6">
-              <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <div className="w-3 h-3 rounded-full bg-amber-500"></div>
-                <div className="w-3 h-3 rounded-full bg-emerald-500"></div>
-              </div>
-              <span className="text-xs font-mono text-cyan-400 flex items-center gap-1">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                AI Model Online
-              </span>
-            </div>
-
-            {/* กรอบสแกนใบหน้าจำลอง */}
-            <div className="relative aspect-4/3 bg-slate-900/90 rounded-2xl border border-slate-700/60 flex flex-col items-center justify-center p-6 mb-6 overflow-hidden">
-              
-              {/* ไอคอนกรอบใบหน้า */}
-              <div className="relative z-10 flex flex-col items-center">
-                <div className="p-4 rounded-full bg-blue-500/10 border border-blue-400/30 text-cyan-400 mb-3 animate-pulse">
-                  <ScanFace className="w-16 h-16" />
+        {/* คอลัมน์ขวา: แสดงรูปภาพจริงแบบ Layered / Stacked Cards (เลเยอร์ซ้อนกัน) */}
+        <div className="lg:col-span-5 relative flex flex-col items-center justify-center pt-4 pb-8">
+          
+          {/* คอนเทนเนอร์กลุ่มรูปภาพซ้อนมิติ */}
+          <div 
+            onClick={() => setIsSwapped(!isSwapped)}
+            className="relative w-full max-w-[270px] sm:max-w-[290px] h-[450px] sm:h-[490px] cursor-pointer group select-none"
+            title="คลิกเพื่อสลับตำแหน่งเลเยอร์รูปภาพ"
+          >
+            {/* เลเยอร์แผ่นหลัง (Back Card Layer) */}
+            <div className={`absolute inset-0 bg-white rounded-3xl p-2 shadow-xl border-2 border-slate-200/80 transition-all duration-500 transform ${
+              isSwapped 
+                ? 'z-20 translate-x-0 translate-y-0 rotate-0 scale-100 shadow-2xl border-blue-400' 
+                : 'z-10 translate-x-6 -translate-y-2.5 rotate-6 scale-95 opacity-90 group-hover:translate-x-9 group-hover:rotate-8'
+            }`}>
+              <div className="relative w-full h-full rounded-2xl overflow-hidden bg-white flex items-center justify-center p-1">
+                <img 
+                  src={img54488} 
+                  alt="AI Face Prediction App Screen 54488" 
+                  className="w-full h-full object-contain rounded-xl"
+                />
+                <div className="absolute bottom-3 left-3 bg-slate-900/90 backdrop-blur-md px-2.5 py-1 rounded-lg border border-slate-700 text-[11px] font-semibold text-white shadow-md">
+                  Semantic Search Screen
                 </div>
-                <span className="text-xs font-mono text-slate-300">Scanning & Feature Extraction...</span>
-              </div>
-
-              {/* แท็กสถานะในกรอบสแกน */}
-              <div className="absolute top-3 left-3 bg-slate-800/80 backdrop-blur-md px-2.5 py-1 rounded-md text-[11px] font-mono text-emerald-400 border border-emerald-500/30">
-                Match Rate: 98.4%
-              </div>
-              <div className="absolute bottom-3 right-3 bg-slate-800/80 backdrop-blur-md px-2.5 py-1 rounded-md text-[11px] font-mono text-blue-400 border border-blue-500/30">
-                FastAPI: 24ms
               </div>
             </div>
 
-            {/* ตัวอย่างกล่องค้นหาแบบ Semantic Search */}
-            <div className="space-y-3">
-              <div className="text-xs font-semibold text-slate-400 flex items-center justify-between">
-                <span>จำลองการค้นหา (Semantic Search)</span>
-                <Search className="w-3.5 h-3.5 text-slate-500" />
+            {/* เลเยอร์แผ่นหน้า (Front Card Layer) */}
+            <div className={`absolute inset-0 bg-white rounded-3xl p-2 shadow-2xl border-3 border-slate-100 shadow-blue-500/10 transition-all duration-500 transform ${
+              isSwapped 
+                ? 'z-10 translate-x-6 -translate-y-2.5 rotate-6 scale-95 opacity-90 group-hover:translate-x-9 group-hover:rotate-8' 
+                : 'z-20 translate-x-0 translate-y-0 rotate-0 scale-100 shadow-blue-500/15 group-hover:-translate-x-1 group-hover:-rotate-1'
+            }`}>
+              {/* Badge แสดงรูปภาพจริง */}
+              <div className="absolute top-3 left-3 z-30 bg-slate-900/90 backdrop-blur-md text-white px-2.5 py-1 rounded-full text-[11px] font-semibold flex items-center gap-1.5 shadow-md border border-slate-700/80">
+                <Smartphone className="w-3 h-3 text-cyan-400" />
+                <span>หน้าหลักสำหรับค้นหา</span>
               </div>
-              <div className="bg-slate-800/70 border border-slate-700 rounded-xl p-3 text-xs text-slate-300 flex items-center justify-between">
-                <span className="truncate italic text-slate-400">"ค้นหาใบหน้าผู้ชายผมสั้น ใส่แว่นตา..."</span>
-                <span className="ml-2 bg-blue-600 text-white text-[10px] px-2 py-0.5 rounded font-mono">Run</span>
-              </div>
-            </div>
 
-            {/* ฟุตเตอร์การ์ด */}
-            <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
-              <span className="flex items-center gap-1">
-                <Database className="w-3.5 h-3.5 text-blue-400" /> MySQL DB
-              </span>
-              <span className="flex items-center gap-1">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> High Accuracy
-              </span>
+              <div className="relative w-full h-full rounded-2xl overflow-hidden bg-white flex items-center justify-center p-1">
+                <img 
+                  src={img54487} 
+                  alt="AI Face Prediction App Screen 54487" 
+                  className="w-full h-full object-contain rounded-xl"
+                />
+              </div>
             </div>
 
           </div>
+
+          {/* คำแนะนำให้คลิกสลับเลเยอร์ */}
+          <button 
+            onClick={() => setIsSwapped(!isSwapped)}
+            className="mt-6 inline-flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-blue-600 bg-white/80 px-3.5 py-1.5 rounded-full border border-slate-200 shadow-xs hover:shadow-sm backdrop-blur-md transition-all"
+          >
+            <Repeat className="w-3.5 h-3.5 text-blue-500 animate-spin-slow" />
+            <span>คลิกเพื่อสลับดูภาพเลเยอร์ซ้อน (Swap Layer)</span>
+          </button>
+
         </div>
       </div>
     </section>
